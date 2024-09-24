@@ -46,6 +46,33 @@ Este es el paso a paso del proceso de configuración:
     npm install
     npm run dev
 ```
-7. En el menú que aparece en la consola seleccionar laravel + blade, ya que no se usará un framework ni herramienta adicional en este proceso.
+6. En el menú que aparece en la consola seleccionar laravel + blade, ya que no se usará un framework ni herramienta adicional en este proceso.
+
+### Configuración plantilla
+
+Lo ideal es que mientras se entiende la arquitectura de laravel y su funcionamiento, empezar con un template gratuito, para este caso recomiendo alguno de los siguientes sitios:
+
+ - [Theme wagon](https://themewagon.com/)
+ - [W3Layouts](https://w3layouts.com/)
+ - [HTML5 UP](https://html5up.net/)
+
+Importante que la plantilla seleccionada, no tenga dependencias de jquery o de librerías desactualizadas (consultar si tiene repositorio o si aparece en [npmjs.com](npmjs.com)).
+
+Las secciones de la carpeta de la plantilla descargada, se va pasando poco a poco al proyecto de Laravel, ubicando el archivo html en la carpeta de recursos (resources/views) y luego cambiandole la extension y el nombre de about.html a about.blade.php.
+
+Finalmente se debe enlazar las rutas respectivas, sugiero empezar con las peticiones get, es decir el enlace que aparece en el menú de navegación de la plantilla, cambiar href="about.html" por href="/about" en cada enlace y en el enrutador que esta en la carpeta routes editar el archivo web.php con el siguiente código:
+
+```
+Route::get('/about', function () {
+	return  view('about');
+});
+```
+
+Observe que la vista, solo toma el nombre del archivo, sin la terminación blade.php.
+
+### Configuración de vite (En construcción)
+
+Vite es el bundler que viene instalado por defecto en las últimas versiones de laravel, acá dejaré algunas notas importantes para poder visualizar las plantillas correctamente, teniendo en cuenta configurar las rutas de las imágenes y otros recursos como archivos css y de javascript. 
+
 
 
